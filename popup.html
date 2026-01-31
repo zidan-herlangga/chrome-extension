@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengaturan AI Solver</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div
+      style="
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #334155;
+      "
+    >
+      <h3 style="margin: 0; color: #38bdf8; font-size: 16px">
+        AIVA - Smart Screen Assistant
+      </h3>
+      <p style="margin: 5px 0 0; font-size: 11px; color: #94a3b8">
+        Gunakan Bubble di halaman web.
+      </p>
+    </div>
+
+    <div class="tab-nav">
+      <div class="tab-btn active" data-tab="settings">API & Model</div>
+      <div class="tab-btn" data-tab="history">Riwayat</div>
+    </div>
+
+    <div id="tab-settings" class="tab-content active">
+      <div class="input-group">
+        <label for="apiKeyInput">OpenRouter API Key:</label>
+        <input type="password" id="apiKeyInput" placeholder="sk-or-..." />
+      </div>
+      <div class="input-group">
+        <label for="modelSelect">Model AI:</label>
+        <select id="modelSelect">
+          <option value="arcee-ai/trinity-large-preview:free">
+            Trinity Large (Gratis)
+          </option>
+          <option value="deepseek/deepseek-r1-0528:free">
+            DeepSeek R1 (Gratis)
+          </option>
+          <option value="openai/gpt-4o-mini">GPT-4o Mini (Berbayar)</option>
+        </select>
+      </div>
+      <button id="saveSettingsBtn" class="btn-secondary">
+        Simpan Pengaturan
+      </button>
+    </div>
+
+    <div id="tab-history" class="tab-content">
+      <div id="historyList" class="history-list">
+        <div class="empty-state">Belum ada riwayat.</div>
+      </div>
+      <button id="clearHistoryBtn" class="btn-danger">Hapus Semua</button>
+    </div>
+
+    <!-- Button Disable/Enable -->
+    <div
+      style="text-align: center; padding: 15px; border-top: 1px solid #334155"
+    >
+      <button id="toggleBtn" class="btn-primary">Nonaktifkan AI Solver</button>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

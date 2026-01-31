@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ujian Online - Mode Ketat</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Mencegah scroll bar */
+        user-select: none; /* Mencegah seleksi teks standar */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      /* Overlay Peringatan jika keluar fullscreen */
+      #warning-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 0, 0, 0.9);
+        color: white;
+        display: none;
+        z-index: 9999;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: white;
+        padding: 40px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        position: relative;
+      }
+
+      h1 {
+        color: #e11d48;
+        margin-bottom: 10px;
+      }
+      .exam-info {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 20px;
+      }
+
+      .question-block {
+        margin-bottom: 30px;
+        background: #fafafa;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+
+      .question-text {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #1e293b;
+      }
+
+      .options {
+        display: grid;
+        gap: 10px;
+      }
+
+      .option-label {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .option-label:hover {
+        background-color: #e0f2fe;
+        border-color: #0ea5e9;
+      }
+
+      /* Radio button custom style */
+      input[type="radio"] {
+        margin-right: 12px;
+        accent-color: #0ea5e9;
+        transform: scale(1.2);
+      }
+
+      /* Disable text selection secara visual dengan CSS pseudo-element overlay (opsional tapi kuat) */
+      .protected-text::after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Overlay Peringatan -->
+    <div id="warning-overlay">
+      <h1>⚠️ PERINGATAN DETEKSI KECURANGAN!</h1>
+      <p>Anda keluar dari Mode Layar Penuh.</p>
+      <p>Silakan kembali ke layar penuh atau ujian akan dibatalkan.</p>
+      <button
+        onclick="goFullscreen()"
+        style="
+          padding: 10px 20px;
+          background: white;
+          color: red;
+          border: none;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 4px;
+          margin-top: 20px;
+        "
+      >
+        KEMBALI KE LAYAR PENUH
+      </button>
+    </div>
+
+    <!-- Konten Ujian -->
+    <div class="container">
+      <div class="exam-info">
+        <strong>Matematika Dasar - Paket A</strong><br />
+        Waktu: 45 Menit | Siswa: Budi Santoso<br />
+        <span style="color: red; font-weight: bold"
+          >*Dilarang Klik Kanan, Copy, atau Print*</span
+        >
+      </div>
+
+      <!-- Soal 1 -->
+      <div class="question-block">
+        <div class="question-text">
+          1. Jika sebuah persegi memiliki sisi 10 cm, berapakah kelilingnya?
+        </div>
+        <div class="options">
+          <label class="option-label">
+            <input type="radio" name="q1" value="A" /> A. 20 cm
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="B" /> B. 40 cm
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="C" /> C. 50 cm
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="D" /> D. 100 cm
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q1" value="E" /> E. 200 cm
+          </label>
+        </div>
+      </div>
+
+      <!-- Soal 2 -->
+      <div class="question-block">
+        <div class="question-text">
+          2. Ibukota negara Indonesia yang baru direncanakan berada di
+          provinsi...
+        </div>
+        <div class="options">
+          <label class="option-label">
+            <input type="radio" name="q2" value="A" /> A. Jawa Barat
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="B" /> B. Kalimantan Timur
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="C" /> C. Sumatera Utara
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="D" /> D. Sulawesi Selatan
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q2" value="E" /> E. Papua
+          </label>
+        </div>
+      </div>
+
+      <div style="text-align: right; margin-top: 20px">
+        <button
+          style="
+            padding: 12px 24px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+          "
+          onclick="alert('Jawaban tersimpan (Simulasi).')"
+        >
+          KIRIM JAWABAN
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // --- 1. AUTO FULLSCREEN SAAT LOAD ---
+      window.addEventListener("load", () => {
+        // Meminta izin fullscreen dengan sedikit delay agar UX lebih baik
+        setTimeout(() => {
+          goFullscreen();
+        }, 500);
+      });
+
+      function goFullscreen() {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen().catch((err) => {
+            console.log("Fullscreen ditolak user:", err);
+          });
+        } else if (elem.webkitRequestFullscreen) {
+          /* Safari */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          /* IE11 */
+          elem.msRequestFullscreen();
+        }
+      }
+
+      // --- 2. DETEKSI KELUAR FULLSCREEN ---
+      document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement) {
+          // Tampilkan overlay peringatan
+          document.getElementById("warning-overlay").style.display = "flex";
+        } else {
+          // Sembunyikan overlay
+          document.getElementById("warning-overlay").style.display = "none";
+        }
+      });
+
+      // --- 3. DISABLE COPY-PASTE & RIGHT CLICK ---
+
+      // Matikan Klik Kanan
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault(),
+      );
+
+      // Matikan Shortcut Keyboard (Ctrl+C, Ctrl+U, Ctrl+P, F12)
+      document.addEventListener("keydown", function (e) {
+        // Cek kombinasi tombol
+        if (
+          e.ctrlKey &&
+          (e.key === "c" ||
+            e.key === "C" ||
+            e.key === "u" ||
+            e.key === "U" ||
+            e.key === "p" ||
+            e.key === "P" ||
+            e.key === "a" ||
+            e.key === "A" ||
+            e.key === "s" ||
+            e.key === "S")
+        ) {
+          e.preventDefault();
+          alert("Aksi ini dilarang selama ujian berlangsung!");
+        }
+
+        // Matikan F12 (Developer Tools)
+        if (e.key === "F12") {
+          e.preventDefault();
+        }
+      });
+
+      // Mencegah Drag & Drop gambar (opsional)
+      document.addEventListener("dragstart", (event) => event.preventDefault());
+
+      // --- 4. HIDE MOUSE CURSOR SAAT DIAM ---
+      let mouseTimer = null;
+      let cursorVisible = true;
+
+      document.addEventListener("mousemove", () => {
+        if (cursorVisible) {
+          document.body.style.cursor = "default";
+          cursorVisible = false;
+        }
+        clearTimeout(mouseTimer);
+        mouseTimer = setTimeout(() => {
+          document.body.style.cursor = "none"; // Sembunyikan kursor setelah 2 diam
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

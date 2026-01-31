@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+body {
+  width: 320px;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #1e293b;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+.tab-nav {
+  display: flex;
+  background-color: #0f172a;
+  border-bottom: 1px solid #334155;
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #64748b;
+  border-bottom: 2px solid transparent;
+}
+.tab-btn:hover {
+  color: #94a3b8;
+  background-color: #1e293b;
+}
+.tab-btn.active {
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+  background-color: #1e293b;
+}
+
+.tab-content {
+  display: none;
+  padding: 16px;
+}
+.tab-content.active {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 600;
+}
+.input-group {
+  margin-bottom: 16px;
+}
+input,
+select {
+  width: 100%;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+input:focus,
+select:focus {
+  border-color: #38bdf8;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+}
+.btn-secondary {
+  background-color: #334155;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+}
+.btn-secondary:hover {
+  background-color: #475569;
+}
+.btn-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  margin-top: 10px;
+}
+.btn-danger:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.history-list {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+.history-item {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+.history-badge {
+  color: #4ade80;
+  font-weight: bold;
+  font-size: 10px;
+}
+.history-q {
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #f1f5f9;
+}
+.history-a {
+  color: #94a3b8;
+  white-space: pre-wrap;
+}
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+  font-style: italic;
+  font-size: 12px;
+}
